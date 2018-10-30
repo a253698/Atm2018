@@ -1,5 +1,6 @@
 package mavis.com.atm2018;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,9 @@ public class LoginActivity extends AppCompatActivity {
         if ("mavis".equals(username) && "253698".equals(password)) {
             setResult(RESULT_OK);
             finish();
+        }else{
+            new AlertDialog.Builder(this).setMessage("Wrong").setTitle("ERROR!").show();
+
         }
     }
 }
