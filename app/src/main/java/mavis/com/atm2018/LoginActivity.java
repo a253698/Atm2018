@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
             setResult(RESULT_OK);
             finish();
         }else{
-            new AlertDialog.Builder(this).setMessage("Wrong").setTitle("ERROR!").show();
+            new AlertDialog.Builder(this).setMessage("Wrong user name or wrong password.").setTitle("ERROR!").setPositiveButton("OK!", null).show();
 
         }
     }
