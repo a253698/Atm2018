@@ -1,5 +1,6 @@
 package mavis.com.atm2018;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,13 @@ public class LoginActivity extends AppCompatActivity {
         String username = edusername.getText().toString();
         String password = edpassword.getText().toString();
         if ("mavis".equals(username) && "253698".equals(password)) {
+//            SharedPreferences settings = getSharedPreferences("atm", MODE_PRIVATE);
+//            settings.edit().putString().apply();
+//              因為只要用一次，所以直接使用就好。
+            getSharedPreferences("atm", MODE_PRIVATE)
+                    .edit()
+                    .putString("USERNAME" , username)
+                    .apply();
             setResult(RESULT_OK);
             finish();
         }else{
