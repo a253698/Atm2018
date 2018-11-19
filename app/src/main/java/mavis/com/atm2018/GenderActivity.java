@@ -27,4 +27,8 @@ public class GenderActivity extends AppCompatActivity {
         startActivity(main);
     }
 
+    public void back(View view) {
+        finish();
+    }
+
 }
