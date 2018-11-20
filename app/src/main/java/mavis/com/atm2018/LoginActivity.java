@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         //用空字串，第一次登入才不會產生null
     }
     public void login(View view) {
+        Log.d("LoginActivity", "login");
         findView();
         username = edusername.getText().toString();
         password = edpassword.getText().toString();

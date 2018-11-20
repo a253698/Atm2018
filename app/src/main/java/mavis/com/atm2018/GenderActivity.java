@@ -3,6 +3,7 @@ package mavis.com.atm2018;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -15,6 +16,7 @@ public class GenderActivity extends AppCompatActivity {
     }
 
     public void gendermain(View view) {
+        Log.d("GenderActivity" , "gerdermain");
         EditText edgender = findViewById(R.id.ed_gender);
         String gender = edgender.getText().toString();
         getSharedPreferences("user", MODE_PRIVATE)

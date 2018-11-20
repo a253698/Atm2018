@@ -3,6 +3,7 @@ package mavis.com.atm2018;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -17,6 +18,7 @@ public class NicknameActivity extends AppCompatActivity {
     }
 
     public void nicknamenext(View view){
+        Log.d("NicknameActivity", "nicknamenext");
         ednickname = findViewById(R.id.ed_nickname);
         String nickname = ednickname.getText().toString();
         getSharedPreferences("user" , MODE_PRIVATE)
