@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BasicActivity {
 
     private EditText edusername;
     private EditText edpassword;
@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         findView();
         username = edusername.getText().toString();
         password = edpassword.getText().toString();
-        if ("mavis".equals(username) && "253698".equals(password)) {
+        if ("mavis".equals(username) && "1234".equals(password)) {
 //            SharedPreferences settings = getSharedPreferences("atm", MODE_PRIVATE);
 //            settings.edit().putString().apply();
 //              因為只要用一次，所以直接使用就好。

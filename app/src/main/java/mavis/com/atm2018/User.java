@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class User {
-    // Alt + Insert
 
+    // Alt + Insert
     private Context context;
     String id ;
     String nickname ;

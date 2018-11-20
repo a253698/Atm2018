@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-public class AgeActivity extends AppCompatActivity {
+public class AgeActivity extends BasicActivity {
 
     private EditText edage;
 
@@ -21,10 +21,11 @@ public class AgeActivity extends AppCompatActivity {
         Log.d("AgeActivity", "agenext");
         edage = findViewById(R.id.ed_age);
         int age = Integer.parseInt(edage.getText().toString());
-        getSharedPreferences("user" , MODE_PRIVATE)
-                .edit()
-                .putInt("AGE", 20)
-                .apply();
+        user.setAge(age);
+//        getSharedPreferences("user" , MODE_PRIVATE)
+//                .edit()
+//                .putInt("AGE", 20)
+//                .apply();
         Intent gender = new Intent(this,GenderActivity.class);
         startActivity(gender);
     }

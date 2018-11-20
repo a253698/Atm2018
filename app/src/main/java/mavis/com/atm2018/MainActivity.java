@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BasicActivity {
     private static final int RC_LOGIN = 100;
     boolean login = false;
 
@@ -15,19 +15,18 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode != RESULT_OK){
                 finish();
             } else {
-               //若以得到所有資料，下次啟動就不用在輸入。
-                login = true ;
-                String nickname = getSharedPreferences("user" , MODE_PRIVATE)
-                        .getString("NICKNAME", null);
-                int age = getSharedPreferences("user" , MODE_PRIVATE)
-                        .getInt("AGE" , 0);
-                String gender = getSharedPreferences("user" , MODE_PRIVATE)
-                        .getString("GENDER" , null);
-
-                if(nickname == null || age == 0 || gender == null){
+                if(!user.isUserinfo()){
                     Intent nick = new Intent(this,NicknameActivity.class);
                     startActivity(nick);
                 }
+//                若以得到所有資料，下次啟動就不用在輸入。用物件導向之後不用在打那麼多。
+//                login = true ;
+//                String nickname = getSharedPreferences("user" , MODE_PRIVATE)
+//                        .getString("NICKNAME", null);
+//                int age = getSharedPreferences("user" , MODE_PRIVATE)
+//                        .getInt("AGE" , 0);
+//                String gender = getSharedPreferences("user" , MODE_PRIVATE)
+//                        .getString("GENDER" , null);
             }
         }
     }
