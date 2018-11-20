@@ -20,7 +20,6 @@ public class LoginActivity extends BasicActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         findView();
 //        edusername = findViewById(R.id.ed_userName);
         String username = getSharedPreferences("atm", MODE_PRIVATE).getString("USERNAME" , " ");

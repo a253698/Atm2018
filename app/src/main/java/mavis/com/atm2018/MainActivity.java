@@ -16,8 +16,9 @@ public class MainActivity extends BasicActivity {
                 finish();
             } else {
                 if(!user.isUserinfo()){
-                    Intent nick = new Intent(this,NicknameActivity.class);
-                    startActivity(nick);
+                    login = true ;
+                    Intent nickname = new Intent(this,NicknameActivity.class);
+                    startActivity(nickname);
                 }
 //                若以得到所有資料，下次啟動就不用在輸入。用物件導向之後不用在打那麼多。
 //                login = true ;
