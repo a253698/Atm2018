@@ -20,10 +20,10 @@ public class AgeActivity extends AppCompatActivity {
     public void agenext(View view){
         Log.d("AgeActivity", "agenext");
         edage = findViewById(R.id.ed_age);
-        String age = edage.getText().toString();
+        Integer age = Integer.valueOf(edage.getText().toString());
         getSharedPreferences("user" , MODE_PRIVATE)
                 .edit()
-                .putString("AGE", age)
+                .putInt("AGE", 20)
                 .apply();
         Intent gender = new Intent(this,GenderActivity.class);
         startActivity(gender);

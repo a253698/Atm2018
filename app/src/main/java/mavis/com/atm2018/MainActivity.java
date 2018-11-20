@@ -15,10 +15,18 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode != RESULT_OK){
                 finish();
             }else{
-                //TODO : check nickname, age, gender, exists
+               //若以得到所有資料，下次啟動就不用在輸入。
                 login = true ;
-                Intent nickname = new Intent(this,NicknameActivity.class);
-                startActivity(nickname);
+                String nickname = getSharedPreferences("user" , MODE_PRIVATE)
+                        .getString("NICKNAME", null);
+                int age = getSharedPreferences("user" , MODE_PRIVATE)
+                        .getInt("AGE" , 0);
+                String gender = getSharedPreferences("user" , MODE_PRIVATE)
+                        .getString("GENDER" , null);
+                if(nickname == null || age == 0 || gender == null){
+                    Intent nick = new Intent(this,NicknameActivity.class);
+                    startActivity(nick);
+                }
             }
         }
     }
@@ -32,8 +40,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, RC_LOGIN);
         }
-
-
-
     }
 }
