@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == RC_LOGIN){
             if (resultCode != RESULT_OK){
                 finish();
-            }else{
+            } else {
                //若以得到所有資料，下次啟動就不用在輸入。
                 login = true ;
                 String nickname = getSharedPreferences("user" , MODE_PRIVATE)
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
                         .getInt("AGE" , 0);
                 String gender = getSharedPreferences("user" , MODE_PRIVATE)
                         .getString("GENDER" , null);
+
                 if(nickname == null || age == 0 || gender == null){
                     Intent nick = new Intent(this,NicknameActivity.class);
                     startActivity(nick);

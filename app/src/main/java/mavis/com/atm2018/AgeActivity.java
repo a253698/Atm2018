@@ -20,7 +20,7 @@ public class AgeActivity extends AppCompatActivity {
     public void agenext(View view){
         Log.d("AgeActivity", "agenext");
         edage = findViewById(R.id.ed_age);
-        Integer age = Integer.valueOf(edage.getText().toString());
+        int age = Integer.parseInt(edage.getText().toString());
         getSharedPreferences("user" , MODE_PRIVATE)
                 .edit()
                 .putInt("AGE", 20)
