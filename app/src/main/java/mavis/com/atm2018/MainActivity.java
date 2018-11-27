@@ -3,6 +3,11 @@ package mavis.com.atm2018;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends BasicActivity {
     private static final int RC_LOGIN = 100;
@@ -41,5 +46,15 @@ public class MainActivity extends BasicActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, RC_LOGIN);
         }
+        listView();
+    }
+
+    private void listView() {
+        List<String> fruits = Arrays.asList("Banana" , "Apple" , "Guava");
+        //類別+s = 工具型
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruits);
+        //Adapter 為媒介，從SDK抓資料
+        ListView listView = findViewById(R.id.list);
+        listView.setAdapter(adapter);
     }
 }
