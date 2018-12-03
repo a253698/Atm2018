@@ -3,6 +3,8 @@ package mavis.com.atm2018;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -47,6 +49,9 @@ public class MainActivity extends BasicActivity {
             startActivityForResult(intent, RC_LOGIN);
         }
         listView();
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void listView() {
