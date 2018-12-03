@@ -1,3 +1,4 @@
+/*
 
 package mavis.com.atm2018;
 
@@ -99,3 +100,4 @@ private class LayoutInflater {
 }
 
 }
+*/
