@@ -18,13 +18,13 @@ public class MainActivity extends BasicActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == RC_LOGIN){
-            if (resultCode != RESULT_OK){
+        if (requestCode == RC_LOGIN) {
+            if (resultCode != RESULT_OK) {
                 finish();
             } else {
-                if(!user.isUserinfo()){
-                    login = true ;
-                    Intent nickname = new Intent(this,NicknameActivity.class);
+                if (!user.isUserinfo()) {
+                    login = true;
+                    Intent nickname = new Intent(this, NicknameActivity.class);
                     startActivity(nickname);
                 }
 //                若以得到所有資料，下次啟動就不用在輸入。用物件導向之後不用在打那麼多。
@@ -55,7 +55,7 @@ public class MainActivity extends BasicActivity {
     }
 
     private void listView() {
-        List<String> fruits = Arrays.asList("Banana" , "Apple" , "Guava");
+        List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
         //類別+s = 工具型
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruits);
         //Adapter 為媒介，從SDK抓資料
