@@ -79,7 +79,6 @@ public class MainActivity extends BasicActivity {
 
         class FruitViewHolder extends RecyclerView.ViewHolder {
             TextView fruitname;
-
             public FruitViewHolder(View itemView) {
                 super(itemView);
                 fruitname = itemView.findViewById(android.R.id.text1);
@@ -87,6 +86,9 @@ public class MainActivity extends BasicActivity {
         }
     }
 
+    //list 是舊的 後來新增了RecyclerView取代 並且需要使用<1>Adapter (繼承RecylerView.Adapter) 還需要使用抽象類別abstract class
+    //每一列都需要一個viewHolder()
+    //含需要一個<2>ViewHolder 並且繼承 RecylerViewHolder
     private void listView() {
         List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
         //類別+s = 工具型
