@@ -52,15 +52,16 @@ public class MainActivity extends BasicActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, RC_LOGIN);
         }
-        listView();
+       // listView();
+        List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new FruitAdapter());
     }
 
+    //<<1 class >> <3 extends>
     public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.FruitViewHolder> {
-
         @NonNull
         @Override
         public FruitAdapter.FruitViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -77,18 +78,22 @@ public class MainActivity extends BasicActivity {
             return 0;
         }
 
+        //<<2 class>>
         class FruitViewHolder extends RecyclerView.ViewHolder {
             TextView fruitname;
             public FruitViewHolder(View itemView) {
                 super(itemView);
                 fruitname = itemView.findViewById(android.R.id.text1);
+                //先建立layout拉元件，定位 ewHolder類別中建立屬性(配合layout元件)，建立建構子，使用itemView.findViewById()。
+                //如果直接用findViewById會直接在activity_age裡面去做尋找，所以要先itemView
             }
         }
     }
 
-    //list 是舊的 後來新增了RecyclerView取代 並且需要使用<1>Adapter (繼承RecylerView.Adapter) 還需要使用抽象類別abstract class
+    //list 是舊的 後來新增了RecyclerView取代 並且需要使用 <<1>>Adapter  (繼承RecylerView.Adapter) 還需要使用抽象類別abstract class
     //每一列都需要一個viewHolder()
-    //含需要一個<2>ViewHolder 並且繼承 RecylerViewHolder
+    //含需要一個 <<2>>ViewHolder  並且繼承 RecylerViewHolder
+
     private void listView() {
         List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
         //類別+s = 工具型
