@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -40,6 +41,7 @@ public class AgeActivity extends BasicActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new AgeAdapter());
     }
 
     public void back(View view) {
@@ -49,14 +51,16 @@ public class AgeActivity extends BasicActivity {
     //list 是舊的 後來新增了RecyclerView取代 並且需要使用 <<1>>Adapter  (繼承RecylerView.Adapter) 還需要使用抽象類別abstract class
     //每一列都需要一個viewHolder()
     //含需要一個 <<2>>ViewHolder  並且繼承 RecylerViewHolder
-    // 先 Adapter  -> ViewHolder  -> extends RecylerView.Adapter<> ->
+
+    // 先 Adapter  -> ViewHolder  -> extends RecylerView.Adapter<> -> getItemCount -> onCreateViewHolder
 
     // <<1 class>> <3 extends>
     class AgeAdapter extends RecyclerView.Adapter<AgeAdapter.AgeViewHolder>{
         @NonNull
         @Override
         public AgeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+            View view = getLayoutInflater().inflate(R.layout.age_row ,parent, false);
+            return new AgeViewHolder(view);
         }
 
         @Override
@@ -66,7 +70,7 @@ public class AgeActivity extends BasicActivity {
 
         @Override
         public int getItemCount() {
-            return 0;
+            return age.length;
         }
 
         //<<2 class>>
