@@ -1,6 +1,7 @@
 package mavis.com.atm2018;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,11 @@ public class AgeActivity extends BasicActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
+
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new AgeAdapter());
     }
 
     public void agenext(View view){
@@ -37,11 +43,6 @@ public class AgeActivity extends BasicActivity {
 //                .apply();
         Intent gender = new Intent(this,GenderActivity.class);
         startActivity(gender);
-
-        RecyclerView recyclerView = findViewById(R.id.recycler);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AgeAdapter());
     }
 
     public void back(View view) {
@@ -69,7 +70,7 @@ public class AgeActivity extends BasicActivity {
             holder.ageView.setText(age[position] + " ");
             //把他變成String
             if(age[position] == 19){
-
+                holder.ageView.setTextColor(Color.RED);
             }
         }
 
