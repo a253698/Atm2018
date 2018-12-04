@@ -39,6 +39,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.typeTextView.setText(tran.getType() + "");
     }
 
+//取得目前資料筆數 傳回 List<Transaction> trans 集合的筆數
     @Override
     public int getItemCount() {
         if (trans != null) {
@@ -48,12 +49,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         }
     }
 
+//設計建構子
     private List<Transaction> trans;
 
     public List<Transaction> getTrans() {
         this.trans = trans;
     }
 
+//繼承ViewHolder 宣告使用內部屬性
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView dateTextView;
