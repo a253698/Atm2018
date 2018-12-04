@@ -59,9 +59,9 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 //繼承ViewHolder 宣告使用內部屬性
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView dateTextView;
-        private TextView amoutTextView;
-        private TextView typeTextView;
+        private final TextView dateTextView;
+        private final TextView amoutTextView;
+        private final TextView typeTextView;
         public EditText amountTextView;
 
         public ViewHolder(View itemView) {

@@ -63,11 +63,17 @@ public class AgeActivity extends BasicActivity {
             return new AgeViewHolder(view);
         }
 
+        //問要不要顯示
         @Override
         public void onBindViewHolder(@NonNull AgeViewHolder holder, int position) {
+            holder.ageView.setText(age[position] + " ");
+            //把他變成String
+            if(age[position] == 19){
 
+            }
         }
 
+        //計算有幾個row
         @Override
         public int getItemCount() {
             return age.length;

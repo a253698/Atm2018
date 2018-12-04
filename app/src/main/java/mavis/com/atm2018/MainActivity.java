@@ -19,6 +19,8 @@ public class MainActivity extends BasicActivity {
     private static final int RC_LOGIN = 100;
     boolean login = false;
 
+    List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -75,7 +77,7 @@ public class MainActivity extends BasicActivity {
 
         @Override
         public int getItemCount() {
-            return 0;
+            return fruits.size();
         }
 
         //<<2 class>>
@@ -95,7 +97,7 @@ public class MainActivity extends BasicActivity {
     //含需要一個 <<2>>ViewHolder  並且繼承 RecylerViewHolder
 
     private void listView() {
-        List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
+       // List<String> fruits = Arrays.asList("Banana", "Apple", "Guava");
         //類別+s = 工具型
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruits);
         //Adapter 為媒介，從SDK抓資料
