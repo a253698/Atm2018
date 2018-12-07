@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -67,12 +68,14 @@ public class MainActivity extends BasicActivity {
         @NonNull
         @Override
         public FruitAdapter.FruitViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+            View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1 , parent, false);
+                    FruitViewHolder fruitViewHolder = new FruitViewHolder(view);
+            return fruitViewHolder;
         }
 
         @Override
         public void onBindViewHolder(@NonNull FruitAdapter.FruitViewHolder holder, int position) {
-
+            holder.fruitname.setText(fruits.get(position));
         }
 
         @Override
