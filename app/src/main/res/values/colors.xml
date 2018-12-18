@@ -3,4 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <string-array name="rainbow">
+        <item>#FFB7DD</item>
+        <item>#FFC8B4</item>
+        <item>#FFFFBB</item>
+        <item>#CCFF99</item>
+        <item>#AAFFEE</item>
+        <item>#CCEEFF</item>
+        <item>#CCCCFF</item>
+        <item>#F0BBFF</item>
+
+    </string-array>
 </resources>

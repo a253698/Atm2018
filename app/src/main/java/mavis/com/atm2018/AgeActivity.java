@@ -19,17 +19,22 @@ public class AgeActivity extends BasicActivity {
 
     private EditText edage;
 
-    int[] age = {19, 20, 21, 22, 23, 24, 25};
+    int[] age = {19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+    String[] rainbow = null;
+    private EditText edAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
+        rainbow = getResources().getStringArray(R.array.rainbow);
 
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new AgeAdapter());
+
+        edAge = findViewById(R.id.ed_age);
     }
 
     public void agenext(View view){
@@ -66,12 +71,24 @@ public class AgeActivity extends BasicActivity {
 
         //問要不要顯示
         @Override
-        public void onBindViewHolder(@NonNull AgeViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull final AgeViewHolder holder, final int position) {
             holder.ageView.setText(age[position] + " ");
+            holder.itemView.setBackgroundColor(Color.parseColor(rainbow[position%8]));
             //把他變成String
-            if(age[position] == 19){
-                holder.ageView.setTextColor(Color.RED);
+           /*
+                        i f(age[position] == 19){
+                       holder.ageView.setTextColor(Color.RED);
             }
+            */
+            //用itemView把TextView佔滿，才不會每次點擊都需要精準的點在數字上
+           holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("AgeActivity", "OnClick" + age[position]);
+                    edAge.setText(age[position] + "");
+                }
+           });
+
         }
 
         //計算有幾個row
